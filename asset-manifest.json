@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.b100e6da.chunk.css",
+    "main.js": "/react-gh-pages/static/js/main.9b372be8.chunk.js",
+    "main.js.map": "/react-gh-pages/static/js/main.9b372be8.chunk.js.map",
+    "runtime-main.js": "/react-gh-pages/static/js/runtime-main.881c30c4.js",
+    "runtime-main.js.map": "/react-gh-pages/static/js/runtime-main.881c30c4.js.map",
+    "static/js/2.5dc4a546.chunk.js": "/react-gh-pages/static/js/2.5dc4a546.chunk.js",
+    "static/js/2.5dc4a546.chunk.js.map": "/react-gh-pages/static/js/2.5dc4a546.chunk.js.map",
+    "index.html": "/react-gh-pages/index.html",
+    "precache-manifest.8b6090fcd9fbf9476fc9427ece2695f9.js": "/react-gh-pages/precache-manifest.8b6090fcd9fbf9476fc9427ece2695f9.js",
+    "service-worker.js": "/react-gh-pages/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/react-gh-pages/static/css/main.b100e6da.chunk.css.map",
+    "static/media/logo.svg": "/react-gh-pages/static/media/logo.25bf045c.svg"
+  }
+}
