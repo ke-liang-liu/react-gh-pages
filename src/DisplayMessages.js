@@ -1,6 +1,34 @@
 import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-class DisplayMessages extends React.Component {
+// Redux Code:
+const ADD = 'ADD';
+
+const addMessage = (message) => {
+  return {
+    type: ADD,
+    message
+  }
+};
+
+const messageReducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD:
+      return [
+        ...state,
+        action.message
+      ];
+    default:
+      return state;
+  }
+};
+
+const store = createStore(messageReducer);
+
+// React Code:
+
+class DisplayMessagesInside extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,42 +38,45 @@ class DisplayMessages extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
   }
-
   handleChange(event) {
-    console.log(event.target);
     this.setState({
       input: event.target.value
-    })
+    });
   }
   submitMessage() {
+    const currentMessage = this.state.input;
     this.setState({
-      messages: this.state.messages.concat(this.state.input),
-      input: ''
-    })
+      input: '',
+      messages: this.state.messages.concat(currentMessage)
+    });
   }
   render() {
-    let list = this.state.messages.map(x => <li key={x + 1}>{x}</li>);
     return (
       <div>
         <h2>Type in a new Message:</h2>
-        { /* render an input, button, and ul here */}
-        <input type='text'
+        <input
           value={this.state.input}
-          onChange={this.handleChange}  
-          onKeyUp={ event => {
-            if (event.key === 'Enter') {this.submitMessage()}
-          }}
-          autoFocus />
-        <button onClick={this.submitMessage}>
-          Submit
-        </button>
+          onChange={this.handleChange}/><br/>
+        <button onClick={this.submitMessage}>Submit</button>
         <ul>
-          {list}
+          {this.state.messages.map( (message, idx) => {
+              return (
+                 <li key={idx}>{message}</li>
+              )
+            })
+          }
         </ul>
-        { /* change code above this line */}
       </div>
     );
   }
 };
+
+function DisPlayMessages() {
+    return (
+      <Provider store={store}>
+        <DisplayMessagesInside />
+      </Provider>
+    );
+}
 
 export default DisplayMessages;
