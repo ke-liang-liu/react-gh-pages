@@ -37,12 +37,10 @@ class DisplayMessages extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.submitMessage = this.submitMessage.bind(this);
   }
-
   handleChange(event) {
-    console.log(event.target);
     this.setState({
       input: event.target.value
-    })
+    });
   }
   submitMessage() {
     this.setState({
@@ -66,9 +64,7 @@ class DisplayMessages extends React.Component {
         <button onClick={this.submitMessage}>
           Submit
         </button>
-        <ul>
-          {list}
-        </ul>
+        {list}
       </div>
     );
   }
